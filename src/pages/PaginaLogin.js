@@ -84,6 +84,9 @@ class PaginaLogin extends React.Component {
 	tentaLogarLocal() {
 		this.setState({ estaCarregando: true, mensagem: "" });
 		const { email, senha } = this.state;
+       //Facilitador do login - excluir em prod
+		this.props.navigation.replace("PaginaCurriculo");
+		return;
 
 		/* COLANDO TODO ESSE CODIGO COMENTADO EM "userActions.js"
  		// CRIANDO FUNÇÕES PARA O LOGIN

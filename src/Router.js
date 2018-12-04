@@ -4,14 +4,13 @@
 import { createStackNavigator, TabNavigator } from "react-navigation";
 import PaginaLogin from "./pages/PaginaLogin";
 import FuncionariosPage from "./pages/FuncionariosPage";
-import SeriesPage from "./pages/SeriesPage";
-import SeriesDetailPage from "./pages/SeriesDetailPage";
+//import SeriesPage from "./pages/SeriesPage";
+//import SeriesDetailPage from "./pages/SeriesDetailPage";
 import SplashPage from "./pages/SplashPage";
-import PaginaPessoa from "./pages/PaginaPessoa";
+//import PaginaPessoa from "./pages/PaginaPessoa";
 import CurriculoListPage from "./pages/CurriculoListPage";
 import CurriculoDetail from "./pages/CurriculoDetail";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
-
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
 
 /*2 parametros
@@ -46,20 +45,20 @@ export default createStackNavigator({
         navigationOptions: ({ navigation }) => ({
           title: 'Funcionários',
         }),
-      },
+      },/*
       competencias: {
         screen: PaginaPessoa,
         navigationOptions: ({ navigation }) => ({
           title: 'Competências',
         }),
-      },
+      },*/
     }),
     navigationOptions: ({ navigation }) => ({
       title: 'Lista de Curriculos',
       header: null
     }),
   },
-  "PaginaPrincipal": {
+  /*"PaginaPrincipal": {
     screen: SeriesPage
   },
   "PaginaDetalhe": {
@@ -74,7 +73,7 @@ export default createStackNavigator({
           title: serie.title
       }
     }
-  },
+  },*/
   "DetalheCurriculo": {
     screen: CurriculoDetail,
     navigationOptions: ({navigation}) => {

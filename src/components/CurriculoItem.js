@@ -47,7 +47,7 @@ class ListaPessoasItem extends React.Component {
 
                     <StarRating
                         maxStars={5}
-                        starSize={20}
+                        starSize={12}
                         disabled={true}
                         rating={this.state.starCount}
                         // selectedStar={(rating) => this.onStarRatingPress(rating)}
@@ -64,12 +64,12 @@ const estilo = StyleSheet.create ({
 	linha:{
 		height: 60,
 		borderBottomWidth: 1,
-		borderBottomColor: "#bbb",
+		borderBottomColor: "#e6fbff",
 		alignItems: "center",
 		flexDirection: "row"
 	},
 	linhaText:{
-		fontSize: 20,
+		fontSize: 17,
 		paddingLeft: 15,
 		flex: 7
 	},
@@ -83,7 +83,7 @@ const estilo = StyleSheet.create ({
     },
     star: {
         paddingLeft: 0,
-        paddingRight: 0,
+        paddingRight: 2,
     },
     starContainer: {
         marginRight: 5
