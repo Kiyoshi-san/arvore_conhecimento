@@ -11,6 +11,8 @@ O CALLBACK ("success:") - É O ".then"
 "error:" - ".rejected"
 */
 
+import { getRandomInt } from "../util";
+
 export default class PaginaCompetencias extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +33,7 @@ export default class PaginaCompetencias extends React.Component {
     // setTimeout(() => {
       axios
         /*get - FAZENDO A CHAMADA ASSINCRONA*/
-        .get("https://randomuser.me/api/?nat=br&results=15") // Trazendo 150 registros
+        .get(`https://randomuser.me/api/?nat=br&results=${getRandomInt(6,8)}`) // Trazendo 150 registros
         /*then - CALL BACK
         response é passado pelo axios*/
         .then(response => {
@@ -71,7 +73,7 @@ export default class PaginaCompetencias extends React.Component {
               : <CompetenciaPessoaList 
                 pessoas={this.state.pessoas}
                 clicouItem={paginaParams => {
-                  this.props.navigation.navigate("DetalheCompetencia", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
+                  this.props.navigation.navigate("DetalheCompetenciaPessoa", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
                   - Assim que passamos dados de uma pagina para outra
                   */
                 }}
