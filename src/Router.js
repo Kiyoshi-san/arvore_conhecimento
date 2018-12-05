@@ -29,6 +29,7 @@ export default createStackNavigator({
     screen: PaginaLogin,
     navigationOptions: {
       title: "Login",
+      alignSelf: "center",
     }
   },
   /* Pagina Curriculo com as Abas */
@@ -101,7 +102,7 @@ export default createStackNavigator({
         title: "Editar",
         headerTitleStyle: {
           color: "#000",
-          fontSize: 30,
+          fontSize: 20,
           alignSelf: "center"
         }
       });

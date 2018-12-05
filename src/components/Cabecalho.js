@@ -35,7 +35,7 @@ PODEMOS PASSAR ESSE OBJETO CRIADO DENTRO DO METODO CREATE DO StyleSheet - Ele aj
 const estilo = StyleSheet.create({
 	estiloContainer: {
 		marginTop: 24,
-		backgroundColor: "#BFEBFF",
+		backgroundColor: "##BFB0FF,
 
 		alignItems: "center",
 		justifyContent: "center"
