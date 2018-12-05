@@ -91,7 +91,7 @@ export default class CurriculoListPage extends React.Component {
                 
                 - Entao vamos passar o parametro "paginaParams" tb*/
                 clicouItem={paginaParams => {
-                  this.props.navigation.navigate("DetalheCompetencia", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
+                  this.props.navigation.navigate("DetalheCurriculo", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
                   - Assim que passamos dados de uma pagina para outra
                   */
                 }}

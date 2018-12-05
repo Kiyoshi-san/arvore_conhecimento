@@ -35,7 +35,7 @@ PODEMOS PASSAR ESSE OBJETO CRIADO DENTRO DO METODO CREATE DO StyleSheet - Ele aj
 const estilo = StyleSheet.create({
 	estiloContainer: {
 		marginTop: 24,
-		backgroundColor: "##BFB0FF",
+		backgroundColor: "#BFB0FF",
 
 		alignItems: "center",
 		justifyContent: "center"
@@ -52,6 +52,7 @@ const estilo = StyleSheet.create({
 // utilizaremos então o stateless component
 const Cabecalho = (props) => (
 	<View style={estilo.estiloContainer}>
+	<StatusBar hidden={route.statusBarHidden}/>
 		<Text style={estilo.estiloTexto}>{props.titulo}</Text>
 	</View>
 );

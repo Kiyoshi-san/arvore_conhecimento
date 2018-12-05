@@ -15,7 +15,7 @@ class CurriculoDetail extends React.Component {
 	}
 
 	render(){
-		let competencias = [{habilidade:"Java", nivel:3.5},{habilidade:"Javascript", nivel:2},{habilidade:"SQL", nivel:4}, {habilidade:"PHP", nivel:4.5}];
+		let competencias = [{habilidade:"Java", nivel:getRandomInt(1,5)},{habilidade:"Javascript", nivel:getRandomInt(1,5)},{habilidade:"SQL", nivel:getRandomInt(1,5)}, {habilidade:"PHP", nivel:getRandomInt(1,5)}];
 
 		/*pessoas vindo de "ListaPessoasItem.js" - irParaDetalhes({ pessoas });*/
 		const { pessoas } = this.props.navigation.state.params;
