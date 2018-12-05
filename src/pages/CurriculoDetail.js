@@ -5,6 +5,7 @@ import Linha from "../components/Detalhes_LinhaTabelaDados";
 
 // Doc - https://github.com/djchie/react-native-star-rating#usage
 import StarRating from 'react-native-star-rating';
+import { getRandomInt } from "../util";
 
 class CurriculoDetail extends React.Component {
 	constructor (props) {
