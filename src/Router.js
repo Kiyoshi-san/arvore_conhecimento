@@ -7,9 +7,11 @@ import FuncionariosPage from "./pages/FuncionariosPage";
 //import SeriesPage from "./pages/SeriesPage";
 //import SeriesDetailPage from "./pages/SeriesDetailPage";
 import SplashPage from "./pages/SplashPage";
-//import PaginaPessoa from "./pages/PaginaPessoa";
+import PaginaCompetencias from "./pages/PaginaCompetencias";
 import CurriculoListPage from "./pages/CurriculoListPage";
 import CurriculoDetail from "./pages/CurriculoDetail";
+import CompetenciaDetail from "./pages/CompetenciaDetail";
+import PaginaCompetenciaPessoa from "./pages/PaginaCompetenciaPessoa";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
 
@@ -47,13 +49,13 @@ export default createStackNavigator({
         navigationOptions: ({ navigation }) => ({
           title: 'Funcionários',
         }),
-      },/*
+      },
       competencias: {
-        screen: PaginaPessoa,
+        screen: PaginaCompetencias,
         navigationOptions: ({ navigation }) => ({
           title: 'Competências',
         }),
-      },*/
+      },
     }),
     navigationOptions: ({ navigation }) => ({
       title: 'Lista de Curriculos',
@@ -80,7 +82,35 @@ export default createStackNavigator({
     screen: CurriculoDetail,
     navigationOptions: ({navigation}) => {
 
-      // acessando o objeto recebido da "PaginaPessoa.js" - this.props.navigation.navigate("ChaveDetalhePessoas", paginaParams) - navegacao é o objeto paginaParams
+      // acessando o objeto recebido da "PaginaPessoas.js" - this.props.navigation.navigate("ChaveDetalhePessoas", paginaParams) - navegacao é o objeto paginaParams
+      const nomePessoa = navigation.state.params.pessoas.name.first;
+      return ({
+        title: maiusculaPrimLetra(nomePessoa),
+        headerTitleStyle: {
+          color: "#000",
+          fontSize: 30,
+          alignSelf: "center"
+        }
+      });
+    }
+  },
+  "DetalheCompetencia": {
+    screen: CompetenciaDetail,
+    navigationOptions: ({navigation}) => {
+      const nomePessoa = navigation.state.params.pessoas.name.first;
+      return ({
+        title: maiusculaPrimLetra(nomePessoa),
+        headerTitleStyle: {
+          color: "#000",
+          fontSize: 30,
+          alignSelf: "center"
+        }
+      });
+    }
+  },
+  "PaginaCompetenciaPessoa": {
+    screen: PaginaCompetenciaPessoa,
+    navigationOptions: ({navigation}) => {
       const nomePessoa = navigation.state.params.pessoas.name.first;
       return ({
         title: maiusculaPrimLetra(nomePessoa),
@@ -96,7 +126,7 @@ export default createStackNavigator({
     screen: FuncionarioDetailPage,
     navigationOptions: ({navigation}) => {
 
-      // acessando o objeto recebido da "PaginaPessoa.js" - this.props.navigation.navigate("ChaveDetalhePessoas", paginaParams) - navegacao é o objeto paginaParams
+      // acessando o objeto recebido da "PaginaPessoas.js" - this.props.navigation.navigate("ChaveDetalhePessoas", paginaParams) - navegacao é o objeto paginaParams
       const nomePessoa = navigation.state.params.pessoas.name.first;
       return ({
         // title: maiusculaPrimLetra(nomePessoa),

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 
 /*NÃO SERA MAIS USADO ESSE COMPONENTE, POIS ESTAMOS USANDO UM COMPONENTE PROPRIO PARA NAVEGAÇÃO*/
 // import Cabecalho from "../components/Cabecalho";
-import CurriculoList from "../components/CurriculoList";
+import CompetenciaList from "../components/CompetenciaList";
 
 import axios from "axios"; /* agora ja tenho acesso ao objeto axios
 AXIOS - É COMO A CHAMADA "AJAX" - CHAMADA DE PROMISE
@@ -11,7 +11,7 @@ O CALLBACK ("success:") - É O ".then"
 "error:" - ".rejected"
 */
 
-export default class CurriculoListPage extends React.Component {
+export default class PaginaCompetencias extends React.Component {
   constructor(props) {
     super(props);
 
@@ -61,37 +61,17 @@ export default class CurriculoListPage extends React.Component {
   }
 
   render() {
-    // ENVIADA ESSA FUNÇÃO PARA: F:\kiu\Projetos\ReactNative\listaDePessoas\src\components\ListaPessoasItem.js
-    // this.props.navigation.navigate(/* Chave da página */, /* state */)
-    // this.props.navigation.navigate("ChaveDetalhePessoas");
     return (
       <View style={estilo.container}>
-        {/*<Cabecalho
-          titulo="Usuários"
-        />*/}
-
-        {/*{ this.carregandoLoading() }*/}
-        {/*OU
-          AO INVES DE CHAMAR A FUNÇÃO, COLOCA A LOGICA AQUI MESMO */}
             { this.state.loading == true ? <ActivityIndicator size="large" color="#6ca2f7" /> 
 
             // : null
 
             : this.state.deuErro ? <Text>Ops... Algo deu errado</Text> 
-              : <CurriculoList 
-                pessoas={this.state.pessoas}          
-                //clicouItem={() => {
-                //  this.props.navigation.navigate("ChaveDetalhePessoas")
-                //}}
-
-                /*this.props.navigation.navigate("ChaveDetalhePessoas")
-                Esse navigate() recebe 2 parametros
-                - a chave da pagina (nome/id) que foi declarado no App.js
-                - um parametro que volta para o Navigation do App.js em que podemos setar o titulo da pagina por ex
-                
-                - Entao vamos passar o parametro "paginaParams" tb*/
+              : <CompetenciaList 
+                pessoas={this.state.pessoas}
                 clicouItem={paginaParams => {
-                  this.props.navigation.navigate("DetalheCompetencia", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
+                  this.props.navigation.navigate("PaginaCompetenciaPessoa", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
                   - Assim que passamos dados de uma pagina para outra
                   */
                 }}
