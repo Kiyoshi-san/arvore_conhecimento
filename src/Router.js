@@ -28,6 +28,7 @@ export default createStackNavigator({
   "Login": {
     screen: PaginaLogin,
     navigationOptions: {
+      header: null,
       title: "Login",
       alignSelf: "center",
     }

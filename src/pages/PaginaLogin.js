@@ -302,7 +302,8 @@ const estilo = StyleSheet.create ({
 		height: "100%",
 		paddingLeft: 10,
 		paddingRight: 10,
-		backgroundColor: "#eff"
+		backgroundColor: "#fff",
+		justifyContent: "space-evenly"
 	},
 	input: {
 		paddingLeft: 5,
@@ -312,11 +313,11 @@ const estilo = StyleSheet.create ({
 	centro: {
 		marginTop: 10,
 		marginRight: 'auto',
-		marginBottom: 45,
+		marginBottom: 10,
 		marginLeft: 'auto',
 	},
 	textoknow: {
-		marginTop: 10,
+		marginBottom: 10,
 		fontSize: 30,
 		fontWeight: "bold"
 	}
