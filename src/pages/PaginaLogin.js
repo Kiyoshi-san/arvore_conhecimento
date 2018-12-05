@@ -8,6 +8,7 @@ import {
     Image,
 	ActivityIndicator, /*Simbolo do Loading*/
 	Alert,
+	StatusBar,
 
 } from "react-native";
 
@@ -24,7 +25,6 @@ import { connect } from "react-redux";
 class PaginaLogin extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			email: "",
 			senha: "",
@@ -255,6 +255,7 @@ class PaginaLogin extends React.Component {
 	render(){
 		return(
 			<View style={estilo.container}>
+			<StatusBar hidden={true} />
 				<View>
 					<Image source = {require('../img/know_hat.png')} style={estilo.centro} />
 				</View>
