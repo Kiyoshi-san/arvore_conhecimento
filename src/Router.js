@@ -10,7 +10,6 @@ import SplashPage from "./pages/SplashPage";
 import PaginaCompetencias from "./pages/PaginaCompetencias";
 import CurriculoListPage from "./pages/CurriculoListPage";
 import CurriculoDetail from "./pages/CurriculoDetail";
-import CompetenciaDetail from "./pages/CompetenciaDetail";
 import PaginaCompetenciaPessoa from "./pages/PaginaCompetenciaPessoa";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
@@ -94,26 +93,12 @@ export default createStackNavigator({
       });
     }
   },
-  "DetalheCompetencia": {
-    screen: CompetenciaDetail,
-    navigationOptions: ({navigation}) => {
-      const nomePessoa = navigation.state.params.pessoas.name.first;
-      return ({
-        title: maiusculaPrimLetra(nomePessoa),
-        headerTitleStyle: {
-          color: "#000",
-          fontSize: 30,
-          alignSelf: "center"
-        }
-      });
-    }
-  },
   "PaginaCompetenciaPessoa": {
     screen: PaginaCompetenciaPessoa,
     navigationOptions: ({navigation}) => {
-      const nomePessoa = navigation.state.params.pessoas.name.first;
+      const habilidade = navigation.state.params.competencias.habilidade;
       return ({
-        title: maiusculaPrimLetra(nomePessoa),
+        title: maiusculaPrimLetra(habilidade),
         headerTitleStyle: {
           color: "#000",
           fontSize: 30,

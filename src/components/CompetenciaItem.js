@@ -22,16 +22,16 @@ class CompetenciaItem extends React.Component {
     }
 
     render () {
-        // const {pessoas, irParaDetalhes} = props;
-        const {pessoas, irParaDetalhes} = this.props;
-        const {title, first, last} = pessoas.name;
+        // const {competencias, irParaDetalhes} = props;
+        const {competencias, irParaDetalhes} = this.props;
+        
         return (
             <TouchableOpacity onPress={() => {
-                    irParaDetalhes({ pessoas });
+                    irParaDetalhes({ competencias });
                     
                 }}>
                 <View style={estilo.linha}>
-                    <Text style={estilo.linhaText}>{ `${maiusculaPrimLetra(title)} ${maiusculaPrimLetra(first)} ${maiusculaPrimLetra(last)}` }</Text>
+                    <Text style={estilo.linhaText}>{ competencias.habilidade }</Text>
                 </View>
             </TouchableOpacity>
         );
