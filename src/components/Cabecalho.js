@@ -52,6 +52,7 @@ const estilo = StyleSheet.create({
 // utilizaremos então o stateless component
 const Cabecalho = (props) => (
 	<View style={estilo.estiloContainer}>
+	<StatusBar hidden={route.statusBarHidden}/>
 		<Text style={estilo.estiloTexto}>{props.titulo}</Text>
 	</View>
 );

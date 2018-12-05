@@ -32,7 +32,7 @@ class CompetenciaDetail extends React.Component {
 					<Linha label="Cel:" conteudo={pessoas.location.cel}/>
 					<Linha label="Nacionalidade:" conteudo={pessoas.nat}/>
 					<View>
-						<Text style={{ fontSize: 18, fontWeight: "bold" }}>Competências:</Text>
+						<Text style={{ fontSize: 6, fontWeight: "bold" }}>Competências:</Text>
 						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >								
 							{
 								competencias.map(e => {

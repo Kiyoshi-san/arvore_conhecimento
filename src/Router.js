@@ -48,6 +48,7 @@ export default createStackNavigator({
         screen: FuncionariosPage,
         navigationOptions: ({ navigation }) => ({
           title: 'Funcionários',
+          header: null
         }),
       },
       competencias: {
