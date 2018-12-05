@@ -6,8 +6,8 @@ import {StyleSheet, View, Text, Image, TouchableOpacity} from "react-native";
 É NECESSARIO ADICIONAR A IMPORTAÇÃO NUM ARQUIVO CHAMADO "index.js" QUE É ONDE O NODE JS PROCURA A PASTA IMPORTADA*/
 import { maiusculaPrimLetra } from "../util";
 
-// const CompetenciaItem = props => {
-class CompetenciaItem extends React.Component {
+// const CompetenciaPessoaItem = props => {
+class CompetenciaPessoaItem extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
@@ -69,4 +69,4 @@ const estilo = StyleSheet.create ({
     }
 })
 
-export default CompetenciaItem;
+export default CompetenciaPessoaItem;

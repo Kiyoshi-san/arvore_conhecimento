@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, FlatList, Text } from "react-native";
 
-import CompetenciaItem from "./CompetenciaItem";
+import CompetenciaPessoaItem from "./CompetenciaPessoaItem";
 
-const CompetenciaList = props => {
+const CompetenciaPessoaList = props => {
 	const { pessoas, clicouItem } = props;
 
 	return (
@@ -11,7 +11,7 @@ const CompetenciaList = props => {
 			style={estilo.container}
 			data={pessoas}
 			renderItem={({ item }) => (
-				<CompetenciaItem 
+				<CompetenciaPessoaItem 
 					pessoas={item} 
 					irParaDetalhes={clicouItem}
 				/>
@@ -28,4 +28,4 @@ const estilo = StyleSheet.create({
 		backgroundColor: "#e7f6fd"
 	}
 });
-export default CompetenciaList;
+export default CompetenciaPessoaList;
