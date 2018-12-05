@@ -34,7 +34,7 @@ class FuncionarioDetailPage extends React.Component {
 			phone: this.props.navigation.state.params.pessoas.location.phone,
 			cel: this.props.navigation.state.params.pessoas.location.cel,
 			nat: this.props.navigation.state.params.pessoas.nat,
-			competencias: [{habilidade:"Java", nivel:3.5},{habilidade:"Javascript", nivel:2},{habilidade:"SQL", nivel:4}, {habilidade:"PHP", nivel:4.5}],
+			competencias: [{habilidade:"Java", nivel:getRandomInt(1,5)},{habilidade:"Javascript", nivel:getRandomInt(1,5)},{habilidade:"SQL", nivel:getRandomInt(1,5)}, {habilidade:"PHP", nivel:getRandomInt(1,5)}],
 			activeSections: []
         };
 	}
@@ -174,7 +174,7 @@ class FuncionarioDetailPage extends React.Component {
                         />
                     </LinhaFormulario>
 					<View>
-						<Text style={{ fontSize: 18, fontWeight: "bold" }}>Competências:</Text>
+						<Text style={{ fontSize: 18, fontWeight: "bold" }}>Competências1:</Text>
 						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
 
 						{this._renderContent()/* <Accordion

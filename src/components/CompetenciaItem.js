@@ -51,21 +51,6 @@ const estilo = StyleSheet.create ({
 		paddingLeft: 15,
 		flex: 7
 	},
-	avatar:{
-		aspectRatio: 1, // ESSA PROPRIEDADE É PARA QUE O REACT NÃO DISTORÇA A IMAGEM, OU SEJA MANTEM A PROPORÇÃO
-		flex: 1,
-
-		marginLeft: 15,
-		borderRadius: 50
-
-    },
-    star: {
-        paddingLeft: 0,
-        paddingRight: 2,
-    },
-    starContainer: {
-        marginRight: 5
-    }
 })
 
 export default CompetenciaItem;

@@ -55,7 +55,7 @@ const estilo = StyleSheet.create ({
 	avatar:{
 		aspectRatio: 1, // ESSA PROPRIEDADE É PARA QUE O REACT NÃO DISTORÇA A IMAGEM, OU SEJA MANTEM A PROPORÇÃO
 		flex: 1,
-
+        width: 15,
 		marginLeft: 15,
 		borderRadius: 50
 

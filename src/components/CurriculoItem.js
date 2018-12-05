@@ -8,13 +8,14 @@ import StarRating from 'react-native-star-rating';
 /*PARA IMPORTAR COMO DESTRUCT IGUAL ACIMA "import {StyleSheet} from ... ; É NECESSARIO COLOCAR A PASTA PARA O NODE IMPORTAR NO CASO: "util" QUE É ONDE ESTÁ A FUNÇÃO
 É NECESSARIO ADICIONAR A IMPORTAÇÃO NUM ARQUIVO CHAMADO "index.js" QUE É ONDE O NODE JS PROCURA A PASTA IMPORTADA*/
 import { maiusculaPrimLetra } from "../util";
+import { getRandomInt } from "../util";
 
 // const ListaPessoasItem = props => {
 class ListaPessoasItem extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
-            starCount: 3.5
+            starCount: getRandomInt(2,5)
         };
     }
 
@@ -76,7 +77,7 @@ const estilo = StyleSheet.create ({
 	avatar:{
 		aspectRatio: 1, // ESSA PROPRIEDADE É PARA QUE O REACT NÃO DISTORÇA A IMAGEM, OU SEJA MANTEM A PROPORÇÃO
 		flex: 1,
-
+        width: 15,
 		marginLeft: 15,
 		borderRadius: 50
 
