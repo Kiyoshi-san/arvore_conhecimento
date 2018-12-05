@@ -231,7 +231,7 @@ class PaginaLogin extends React.Component {
 			return <ActivityIndicator />;
 		return (
 			<Button 
-				style={{marginTop: 70}}
+				style={{marginTop: 55}}
 				title="Entrar" 
 				onPress={() => this.tentaLogarLocal()}
 				/>
@@ -259,8 +259,9 @@ class PaginaLogin extends React.Component {
 					<Image source = {require('../img/know_hat.png')} style={estilo.centro} />
 				</View>
 				<View>
-					<Text style={[estilo.centro, estilo.textoknow]}>Knowhow</Text>
+					<Text style={estilo.textoknow}>Knowhow</Text>
 				</View>
+				<View style={{flex: 1, justifyContent: "center"}} >
 				<LinhaFormulario primeiro>
 					<TextInput 
 						style={estilo.input}
@@ -291,6 +292,8 @@ class PaginaLogin extends React.Component {
 				</LinhaFormulario>
 
 				{ this.renderizarBotao() }
+
+			</View>	
 				{ this.renderizarMensagem() }
 			</View>
 		)
@@ -311,15 +314,15 @@ const estilo = StyleSheet.create ({
 		paddingBottom: 5,
 	},
 	centro: {
-		marginTop: 10,
+		marginTop: 150,
 		marginRight: 'auto',
-		marginBottom: 10,
-		marginLeft: 'auto',
+		marginLeft: 'auto'
 	},
 	textoknow: {
-		marginBottom: 10,
 		fontSize: 30,
-		fontWeight: "bold"
+		fontWeight: "bold",
+		marginRight: 'auto',
+		marginLeft: 'auto'
 	}
 });
 
