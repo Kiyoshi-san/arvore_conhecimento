@@ -231,6 +231,7 @@ class PaginaLogin extends React.Component {
 			return <ActivityIndicator />;
 		return (
 			<Button 
+				style={{marginTop: 70}}
 				title="Entrar" 
 				onPress={() => this.tentaLogarLocal()}
 				/>
@@ -301,7 +302,7 @@ const estilo = StyleSheet.create ({
 		height: "100%",
 		paddingLeft: 10,
 		paddingRight: 10,
-		backgroundColor: "#fff"
+		backgroundColor: "#eff"
 	},
 	input: {
 		paddingLeft: 5,
@@ -311,10 +312,11 @@ const estilo = StyleSheet.create ({
 	centro: {
 		marginTop: 10,
 		marginRight: 'auto',
-		marginBottom: 10,
+		marginBottom: 45,
 		marginLeft: 'auto',
 	},
 	textoknow: {
+		marginTop: 10,
 		fontSize: 30,
 		fontWeight: "bold"
 	}

@@ -41,8 +41,9 @@ const estilo = StyleSheet.create({
 		justifyContent: "center"
 	},
 	estiloTexto: {
-		fontSize: 45,
-		color: "#fff"
+		fontSize: 25,
+		color: "#fff",
+		alignSelf: "center"
 	}
 
 });
