@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 
 /*NÃO SERA MAIS USADO ESSE COMPONENTE, POIS ESTAMOS USANDO UM COMPONENTE PROPRIO PARA NAVEGAÇÃO*/
 // import Cabecalho from "../components/Cabecalho";
-import CompetenciaList from "../components/CompetenciaList";
+import CompetenciaPessoaList from "../components/CompetenciaPessoaList";
 
 import axios from "axios"; /* agora ja tenho acesso ao objeto axios
 AXIOS - É COMO A CHAMADA "AJAX" - CHAMADA DE PROMISE
@@ -68,7 +68,7 @@ export default class PaginaCompetencias extends React.Component {
             // : null
 
             : this.state.deuErro ? <Text>Ops... Algo deu errado</Text> 
-              : <CompetenciaList 
+              : <CompetenciaPessoaList 
                 pessoas={this.state.pessoas}
                 clicouItem={paginaParams => {
                   this.props.navigation.navigate("DetalheCompetencia", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
