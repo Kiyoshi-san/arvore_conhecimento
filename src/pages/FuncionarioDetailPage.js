@@ -8,6 +8,7 @@ import StarRating from 'react-native-star-rating';
 
 // https://www.npmjs.com/package/react-native-collapsible
 import Accordion from 'react-native-collapsible/Accordion';
+import { getRandomInt } from "../util";
 
 
 const SECTIONS = [
