@@ -69,7 +69,7 @@ const estilo = StyleSheet.create ({
 		flexDirection: "row"
 	},
 	linhaText:{
-		fontSize: 20,
+		fontSize: 17,
 		paddingLeft: 15,
 		flex: 7
 	},
