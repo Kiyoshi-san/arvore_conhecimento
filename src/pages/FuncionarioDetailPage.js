@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ScrollView, View, Text, TextInput, Image } from "react-native";
+import { StyleSheet, ScrollView, View, Text, TextInput, Image, Alert, Button, Picker } from "react-native";
 
 import LinhaFormulario from "../components/LinhaFormulario";
 
@@ -35,7 +35,52 @@ class FuncionarioDetailPage extends React.Component {
 			phone: this.props.navigation.state.params.pessoas.location.phone,
 			cel: this.props.navigation.state.params.pessoas.location.cel,
 			nat: this.props.navigation.state.params.pessoas.nat,
-			competencias: [{habilidade:"Java", nivel:getRandomInt(1,5)},{habilidade:"Javascript", nivel:getRandomInt(1,5)},{habilidade:"SQL", nivel:getRandomInt(1,5)}, {habilidade:"PHP", nivel:getRandomInt(1,5)}],
+			competencias: [{ 
+				habilidade: "Java",
+				nivel: getRandomInt(1, 5),
+				qty: 5,
+				id: 1
+			},{
+				habilidade: "Javascript",
+				nivel: getRandomInt(1, 5),
+				qty: 6,
+				id: 2
+			},{
+				habilidade: "SQL",
+				nivel: getRandomInt(1, 5),
+				qty: 7,
+				id: 3
+			},{
+				habilidade: "PHP",
+				nivel: getRandomInt(1, 5),
+				qty: 4,
+				id: 4
+			},{
+				habilidade: "C",
+				nivel: getRandomInt(1, 5),
+				qty: 7,
+				id: 5
+			},{
+				habilidade: "C++",
+				nivel: getRandomInt(1, 5),
+				qty: 4,
+				id: 6
+			},{
+				habilidade: "Python",
+				nivel: getRandomInt(1, 5),
+				qty: 3,
+				id: 7
+			},{
+				habilidade: "C#",
+				nivel: getRandomInt(1, 5),
+				qty: 2,
+				id: 8
+			},{
+				habilidade: ".NET",
+				nivel: getRandomInt(1, 5),
+				qty: 9,
+				id: 9
+			}],
 			activeSections: []
         };
 	}
@@ -47,12 +92,16 @@ class FuncionarioDetailPage extends React.Component {
 	}
 	
 	/*******/
-	handleChange = (event) => {
-		console.log(event)
+	// handleChange = (event) => {
+	handleChange (referencia, valor) {
+		/* console.log(event)
 		this.setState({
 			[event.target.id]: event.target.value,
 			dirty: true
-        });
+		}); */
+		this.setState({
+			[referencia]: valor
+		});
 	}
 	
 	fnMudouInput(referencia, valor) {
@@ -60,6 +109,22 @@ class FuncionarioDetailPage extends React.Component {
 			[referencia]: valor
 		});
 	}
+
+	fnEdit() {
+		// Alert.alert(
+		// 	'Alterado com Sucesso!',
+		// 	// 'Deseja realmente alterar?',
+		// 	[
+		// 		/* { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+		// 		{ text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' }, */
+		// 		{ text: 'OK', onPress: () => this.props.navigation.replace("PaginaCurriculo") },
+		// 	],
+		// 	{ cancelable: false }
+		// )
+		alert("Alterado com Sucesso!")
+	}
+
+
 	/*******/
 	
 	_renderSectionTitle = section => {
@@ -128,7 +193,7 @@ class FuncionarioDetailPage extends React.Component {
                             /*onChangeText = { valor => this.fn_atualiza_valor_simult(valor)}
                             OU
                             */
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("name",valor) }
                             // onChangeText = { valor => this.fnMudouInput("email", valor) }
                         />
                         <TextInput
@@ -136,42 +201,42 @@ class FuncionarioDetailPage extends React.Component {
 							style={estilo.input}
                             placeholder="usuario@text.com"
                             value={this.state.email}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("email",valor) }
                         />
                         <TextInput
 							id="city"
 							style={estilo.input}
                             placeholder="Cidade"
                             value={this.state.city}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("city",valor) }
                         />
                         <TextInput
 							id="state"
 							style={estilo.input}
                             placeholder="Estado"
                             value={this.state.state}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("state",valor) }
                         />
                         <TextInput
 							id="phone"
 							style={estilo.input}
                             placeholder="(11) 1111-1111"
                             value={this.state.phone}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("phone",valor) }
                         />
                         <TextInput
 							id="cel"
 							style={estilo.input}
                             placeholder="(11) 91111-1111"
                             value={this.state.cel}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("cel",valor) }
                         />
                         <TextInput
 							id="nat"
 							style={estilo.input}
                             placeholder="Nacionalidade"
                             value={this.state.nat}
-						   onChangeText = { valor => this.handleChange(valor) }
+						   onChangeText = { valor => this.handleChange("nat",valor) }
                         />
                     </LinhaFormulario>
 					<View>
@@ -186,8 +251,28 @@ class FuncionarioDetailPage extends React.Component {
 							renderContent={this._renderContent}
 							onChange={this._updateSections}
 						/> */}
+
+							<Picker
+								selectedValue={this.state.language}
+								style={estilo.picker}
+								onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+								<Picker.Item label="Java" value="java" />
+								<Picker.Item label="Javascript" value="js" />
+								<Picker.Item label="SQL" value="sql" />
+								<Picker.Item label="PHP" value="php" />
+								<Picker.Item label="C" value="c" />
+								<Picker.Item label="C++" value="c++" />
+								<Picker.Item label="Python" value="python" />
+								<Picker.Item label="C#" value="c#" />
+								<Picker.Item label=".NET" value=".net" />
+							</Picker>
 							
 						</View>
+						<Button
+							style={{ marginTop: 55 }}
+							title="Alterar"
+							onPress={() => this.fnEdit()}
+						/>
 					</View>
                 </View>
 			</ScrollView>
@@ -216,6 +301,11 @@ const estilo = StyleSheet.create ({
 	textoknow: {
 		fontSize: 30,
 		fontWeight: "bold"
+	},
+	picker: {
+		height: 50,
+		width: 300
+		// flex: 1
 	}
 });
 
