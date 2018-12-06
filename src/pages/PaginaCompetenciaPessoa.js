@@ -28,12 +28,14 @@ export default class PaginaCompetencias extends React.Component {
   /*VAMOS COLOCAR O OBJETO AXIOS NA FUNÇÇÃO componentDidMount() DO REACT - É UM EVENTO DO TIPO "onReady"*/
   componentDidMount() {
     this.setState({ loading: true });
+    const { qty } = this.props.navigation.state.params.competencias;
 
     // Agendando uma função (a chamada get) para ser executada dps de 1500 ms (1,5 s)
     // setTimeout(() => {
       axios
         /*get - FAZENDO A CHAMADA ASSINCRONA*/
-        .get(`https://randomuser.me/api/?nat=br&results=${getRandomInt(6,8)}`) // Trazendo 150 registros
+        // .get(`https://randomuser.me/api/?nat=br&results=${getRandomInt(6,8)}`) // Trazendo 150 registros
+        .get(`https://randomuser.me/api/?nat=br&results=${ qty }`) // Trazendo 150 registros
         /*then - CALL BACK
         response é passado pelo axios*/
         .then(response => {

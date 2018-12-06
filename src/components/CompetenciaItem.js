@@ -32,6 +32,7 @@ class CompetenciaItem extends React.Component {
                 }}>
                 <View style={estilo.linha}>
                     <Text style={estilo.linhaText}>{ competencias.habilidade }</Text>
+                    <Text style={estilo.linhaText}>{ competencias.qty }</Text>
                 </View>
             </TouchableOpacity>
         );
