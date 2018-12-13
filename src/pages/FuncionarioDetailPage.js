@@ -9,7 +9,7 @@ import StarRating from 'react-native-star-rating';
 // https://www.npmjs.com/package/react-native-collapsible
 import Accordion from 'react-native-collapsible/Accordion';
 import { getRandomInt } from "../util";
-
+import firebase from "firebase";
 
 const SECTIONS = [
 	{
@@ -103,25 +103,31 @@ class FuncionarioDetailPage extends React.Component {
 			[referencia]: valor
 		});
 	}
-	
+
 	fnMudouInput(referencia, valor) {
 		this.setState({
 			[referencia]: valor
 		});
 	}
 
-	fnEdit() {
-		// Alert.alert(
-		// 	'Alterado com Sucesso!',
-		// 	// 'Deseja realmente alterar?',
-		// 	[
-		// 		/* { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-		// 		{ text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' }, */
-		// 		{ text: 'OK', onPress: () => this.props.navigation.replace("PaginaCurriculo") },
-		// 	],
-		// 	{ cancelable: false }
-		// )
+	fnEdit(funcionario) {
 		alert("Alterado com Sucesso!")
+
+        const { qtdJogadores } = this.state;
+		this.countRef = firebase
+			.database()
+			.ref(`${idfunc}/funcionarios`)
+			.push(funcionario)
+			.then(() => {
+				console.log("deu certo")
+			});
+        this.countRef
+          .on('value', count => {
+            if (count.val() === qtdJogadores) {
+                this.setState({matchConnected: true});
+                this.escolherItensBtnJogar();
+            }
+        });
 	}
 
 
@@ -271,7 +277,13 @@ class FuncionarioDetailPage extends React.Component {
 						<Button
 							style={{ marginTop: 55 }}
 							title="Alterar"
-							onPress={() => this.fnEdit()}
+							onPress={() => {
+								this.setState({
+									
+								}, () => {
+									this.fnEdit(this.state.funcionario)
+								})
+							}}
 						/>
 					</View>
                 </View>

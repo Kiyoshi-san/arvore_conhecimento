@@ -37,12 +37,12 @@ class PaginaLogin extends React.Component {
 	componentDidMount() {
 		// Initialize Firebase
 		const config = {
-			apiKey: "AIzaSyDkNY25plEQnLw-aRRQLHIILVxpFrJG-5k",
-			authDomain: "series-f40c5.firebaseapp.com",
-			databaseURL: "https://series-f40c5.firebaseio.com",
-			projectId: "series-f40c5",
-			storageBucket: "series-f40c5.appspot.com",
-			messagingSenderId: "227328473985"
+			apiKey: "AIzaSyDVWc6XPpOg91RgIECdtyMQ8FHG_P44dc8",
+			authDomain: "knowhow-38404.firebaseapp.com",
+			databaseURL: "https://knowhow-38404.firebaseio.com",
+			projectId: "knowhow-38404",
+			storageBucket: "knowhow-38404.appspot.com",
+			messagingSenderId: "934492145945"
 		};
 		firebase.initializeApp(config);
 
