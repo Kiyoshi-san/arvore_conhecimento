@@ -13,7 +13,6 @@ import {
 } from "react-native";
 import PaginaLogin from "./PaginaLogin";
 import LinhaFormulario from "../components/LinhaFormulario";
-import firebase from "firebase";
 
 /* IMPORTANDO A FUNÇÃO DO ACTION CREATOR "tentaLogar()" */
 import { tentaLogar } from "../actions";
