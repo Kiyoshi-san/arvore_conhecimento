@@ -4,7 +4,7 @@ import reducerFuncionario from "./reducerFuncionario";
 
 const rootReducers = combineReducers({
     usuario: reducerFuncionario,
-    funcionario: reducerFuncionario
+    formFunc: reducerFuncionario
 });
 
 

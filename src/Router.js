@@ -14,6 +14,7 @@ import PaginaCompetenciaPessoa from "./pages/PaginaCompetenciaPessoa";
 import CompetenciaPessoaDetail from "./pages/CompetenciaPessoaDetail";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
+import PaginaTree from "./pages/PaginaTree";
 
 /*2 parametros
 - config das paginas
@@ -57,6 +58,12 @@ export default createStackNavigator({
           title: 'Competências',
         }),
       },
+      TreePage: {
+        screen: PaginaTree,
+        navigationOptions: ({ navigation }) => ({
+          title: 'Arvore',
+        }),
+      }
     }),
     navigationOptions: ({ navigation }) => ({
       title: 'Lista de Curriculos',
