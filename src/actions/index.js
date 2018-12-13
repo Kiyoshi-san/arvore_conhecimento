@@ -2,3 +2,4 @@
 import { USER_LOGIN, USER_LOGOUT } from "../action";
 */
 export * from "./userActions";
+export * from "./actionsFuncionario";

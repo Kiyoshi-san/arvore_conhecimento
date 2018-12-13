@@ -10,6 +10,9 @@ import StarRating from 'react-native-star-rating';
 import Accordion from 'react-native-collapsible/Accordion';
 import { getRandomInt } from "../util";
 
+import { connect } from "react-redux";
+// IMPORTANDO A ACTION CREATOR setField PARA PASSAR NO mapDispatchToProps
+import { setField } from "../actions";
 
 const SECTIONS = [
 	{
@@ -103,12 +106,6 @@ class FuncionarioDetailPage extends React.Component {
 			[referencia]: valor
 		});
 	}
-	
-	fnMudouInput(referencia, valor) {
-		this.setState({
-			[referencia]: valor
-		});
-	}
 
 	fnEdit() {
 		// Alert.alert(
@@ -187,56 +184,62 @@ class FuncionarioDetailPage extends React.Component {
 							id="name"
 							style={estilo.input}
                             placeholder="Nome"
-                            value={this.state.name}
+                            value={this.props.formFuncionario.name}
 
                             /*função de callback*/
                             /*onChangeText = { valor => this.fn_atualiza_valor_simult(valor)}
                             OU
                             */
-						   onChangeText = { valor => this.handleChange("name",valor) }
-                            // onChangeText = { valor => this.fnMudouInput("email", valor) }
+						   	// onChangeText = { valor => this.handleChange("name",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("name",valor) }
                         />
                         <TextInput
 							id="email"
 							style={estilo.input}
                             placeholder="usuario@text.com"
-                            value={this.state.email}
-						   onChangeText = { valor => this.handleChange("email",valor) }
+                            value={this.props.formFuncionario.email}
+						   	// onChangeText = { valor => this.handleChange("email",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("email",valor) }
                         />
                         <TextInput
 							id="city"
 							style={estilo.input}
                             placeholder="Cidade"
-                            value={this.state.city}
-						   onChangeText = { valor => this.handleChange("city",valor) }
+                            value={this.props.formFuncionario.city}
+						   	// onChangeText = { valor => this.handleChange("city",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("city",valor) }
                         />
                         <TextInput
 							id="state"
 							style={estilo.input}
                             placeholder="Estado"
-                            value={this.state.state}
-						   onChangeText = { valor => this.handleChange("state",valor) }
+                            value={this.props.formFuncionario.state}
+						   	// onChangeText = { valor => this.handleChange("state",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("state",valor) }
                         />
                         <TextInput
 							id="phone"
 							style={estilo.input}
                             placeholder="(11) 1111-1111"
-                            value={this.state.phone}
-						   onChangeText = { valor => this.handleChange("phone",valor) }
+                            value={this.props.formFuncionario.phone}
+						   	// onChangeText = { valor => this.handleChange("phone",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("phone",valor) }
                         />
                         <TextInput
 							id="cel"
 							style={estilo.input}
                             placeholder="(11) 91111-1111"
-                            value={this.state.cel}
-						   onChangeText = { valor => this.handleChange("cel",valor) }
+                            value={this.props.formFuncionario.cel}
+						   	// onChangeText = { valor => this.handleChange("cel",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("cel",valor) }
                         />
                         <TextInput
 							id="nat"
 							style={estilo.input}
                             placeholder="Nacionalidade"
-                            value={this.state.nat}
-						   onChangeText = { valor => this.handleChange("nat",valor) }
+                            value={this.props.formFuncionario.nat}
+						   	// onChangeText = { valor => this.handleChange("nat",valor) }
+						   	onChangeText = { valor => this.props.setarCampo("nat",valor) }
                         />
                     </LinhaFormulario>
 					<View>
@@ -309,4 +312,29 @@ const estilo = StyleSheet.create ({
 	}
 });
 
-export default FuncionarioDetailPage;
+
+// AO INVES DE EXPORTAR NORMAL, EXPORTAR COM CONNECT
+// export default FuncionarioDetailPage;
+// VEM DO REDUCERS
+
+function mapStateToProps(estado) {
+    return {
+        // minhaProp: {456}
+        formFuncionario: estado.formFunc
+    }
+}
+
+// PARA O mapDispatchToProps PASSAREI UMA ACTION CREATOR - QUE É UM OBJETO
+// VEM DA ACTIONS
+const mapDispatchToProps = {
+    setarCampo: setField
+}
+
+// export default FuncionarioDetailPage; 
+// O CONNECT JA ESTA FAZENDO O DISPATCH DA NOSSA ACTION (QUE É APENAS UM OBJETO), SE NAO FOSSE O CONNECT, FARIAMOS O DISPATCH ASSIM:
+/*
+    <FuncionarioDetailPage
+        setarCampo = {(field, value) => dispatch(setField(field, value))} // O setField(field, value) RETORNA O OBJETO QUE É PASSADO PRO dispatch
+    />
+*/
+export default connect(mapStateToProps, mapDispatchToProps)(FuncionarioDetailPage);

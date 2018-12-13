@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
 
-import reducerUsuario from "./reducerUsuario";
+import reducerFuncionario from "./reducerFuncionario";
 
 const rootReducers = combineReducers({
-    usuario: reducerUsuario
+    usuario: reducerFuncionario,
+    formFunc: reducerFuncionario
 });
 
 
