@@ -30,6 +30,7 @@ class FuncionarioDetailPage extends React.Component {
 	constructor (props) {
         super (props);
         this.state = {
+			competenciaLista: [],
 			starCount: 3.5,
 			name: this.props.navigation.state.params.pessoas.name.first,
 			email: this.props.navigation.state.params.pessoas.email,
@@ -118,6 +119,15 @@ class FuncionarioDetailPage extends React.Component {
 		// 	],
 		// 	{ cancelable: false }
 		// )
+
+		/* let elements = document.getElementsByName("competenciaArray");
+		let competenciaArray = [];
+
+		elements.forEach((a) => {
+			competenciaArray.push(a.value)
+		}); */
+
+		console.log(this.props.formFuncionario)
 		alert("Alterado com Sucesso!")
 	}
 
@@ -165,6 +175,28 @@ class FuncionarioDetailPage extends React.Component {
 		})
 		return <View>{ content }</View>;
 	  };
+
+	  addCompetencia() {
+		const listaCompetencia = (<Picker
+			name="competencias"
+			selectedValue={this.state.language}
+			style={estilo.picker}
+			onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+				<Picker.Item label="Java" value="java" />
+				<Picker.Item label="Javascript" value="js" />
+				<Picker.Item label="SQL" value="sql" />
+				<Picker.Item label="PHP" value="php" />
+				<Picker.Item label="C" value="c" />
+				<Picker.Item label="C++" value="c++" />
+				<Picker.Item label="Python" value="python" />
+				<Picker.Item label="C#" value="c#" />
+				<Picker.Item label=".NET" value=".net" />
+		</Picker>)
+		let compLista = {...this.state.competenciaLista}
+		this.setState({
+			competenciaLista: compLista.push("listaCompetencia")
+		})
+	  }
 	 
 	  _updateSections = activeSections => {
 		this.setState({ activeSections });
@@ -184,67 +216,81 @@ class FuncionarioDetailPage extends React.Component {
 							id="name"
 							style={estilo.input}
                             placeholder="Nome"
-                            value={this.props.formFuncionario.name}
+                            // value={this.props.formFuncionario.name}
+                            value={this.state.name}
 
                             /*função de callback*/
                             /*onChangeText = { valor => this.fn_atualiza_valor_simult(valor)}
                             OU
                             */
-						   	// onChangeText = { valor => this.handleChange("name",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("name",valor) }
+						//    onChangeText = { valor => this.props.setarCampo("name",valor) }
+						   	onChangeText = { valor => this.handleChange("name",valor) }
                         />
                         <TextInput
 							id="email"
 							style={estilo.input}
                             placeholder="usuario@text.com"
-                            value={this.props.formFuncionario.email}
-						   	// onChangeText = { valor => this.handleChange("email",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("email",valor) }
+                            // value={this.props.formFuncionario.email}
+                            value={this.state.email}
+							// onChangeText = { valor => this.props.setarCampo("email",valor) }
+						   	onChangeText = { valor => this.handleChange("email",valor) }
                         />
                         <TextInput
 							id="city"
 							style={estilo.input}
                             placeholder="Cidade"
-                            value={this.props.formFuncionario.city}
-						   	// onChangeText = { valor => this.handleChange("city",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("city",valor) }
+                            // value={this.props.formFuncionario.city}
+                            value={this.state.city}
+							// onChangeText = { valor => this.props.setarCampo("city",valor) }
+						   	onChangeText = { valor => this.handleChange("city",valor) }
                         />
                         <TextInput
 							id="state"
 							style={estilo.input}
                             placeholder="Estado"
-                            value={this.props.formFuncionario.state}
-						   	// onChangeText = { valor => this.handleChange("state",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("state",valor) }
+                            // value={this.props.formFuncionario.state}
+                            value={this.state.state}
+							// onChangeText = { valor => this.props.setarCampo("state",valor) }
+						   	onChangeText = { valor => this.handleChange("state",valor) }
                         />
                         <TextInput
 							id="phone"
 							style={estilo.input}
                             placeholder="(11) 1111-1111"
-                            value={this.props.formFuncionario.phone}
-						   	// onChangeText = { valor => this.handleChange("phone",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("phone",valor) }
+                            // value={this.props.formFuncionario.phone}
+                            value={this.state.phone}
+							// onChangeText = { valor => this.props.setarCampo("phone",valor) }
+						   	onChangeText = { valor => this.handleChange("phone",valor) }
                         />
                         <TextInput
 							id="cel"
 							style={estilo.input}
                             placeholder="(11) 91111-1111"
-                            value={this.props.formFuncionario.cel}
-						   	// onChangeText = { valor => this.handleChange("cel",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("cel",valor) }
+                            // value={this.props.formFuncionario.cel}
+                            value={this.state.cel}
+							// onChangeText = { valor => this.props.setarCampo("cel",valor) }
+						   	onChangeText = { valor => this.handleChange("cel",valor) }
                         />
                         <TextInput
 							id="nat"
 							style={estilo.input}
                             placeholder="Nacionalidade"
-                            value={this.props.formFuncionario.nat}
-						   	// onChangeText = { valor => this.handleChange("nat",valor) }
-						   	onChangeText = { valor => this.props.setarCampo("nat",valor) }
+                            // value={this.props.formFuncionario.nat}
+                            value={this.state.nat}
+							// onChangeText = { valor => this.props.setarCampo("nat",valor) }
+						   	onChangeText = { valor => this.handleChange("nat",valor) }
                         />
                     </LinhaFormulario>
 					<View>
-						<Text style={{ fontSize: 18, fontWeight: "bold" }}>Competências1:</Text>
-						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+						<View>
+							<Text style={{ fontSize: 18, fontWeight: "bold" }}>Competências1:</Text>
+							<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+							{/* <Button
+								style={{ marginTop: 55 }}
+								title="+"
+								onPress={() => this.addCompetencia()}
+							/> */}
+						</View>
 
 						{this._renderContent()/* <Accordion
 							sections={SECTIONS}
